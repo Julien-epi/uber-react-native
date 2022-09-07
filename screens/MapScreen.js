@@ -1,16 +1,26 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Map from "../components/Map";
 import NavigateCard from "../components/NavigateCard";
 import { createStackNavigator } from "@react-navigation/stack";
 import RideOptionsCard from "../components/RideOptionsCard";
+import { Icon } from "react-native-elements";
+import { useNavigation } from "@react-navigation/native";
+
 
 const MapScreen = () => {
   const Stack = createStackNavigator();
+  const navigation = useNavigation();
 
   return (
       <View>
+        <TouchableOpacity 
+        onPress={() => navigation.navigate("HomeScreen")}
+        className=" bg-gray-100 absolute top-16 left-8 z-50 p-3 rounded-full shadow-lg">
+          <Icon name="arrow-left" />
+          {/* Home icon ??? */}
+        </TouchableOpacity>
+
         <View className="h-1/2">
           <Map />
         </View>
